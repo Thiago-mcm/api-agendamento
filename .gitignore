@@ -1,0 +1,21 @@
+# Ambiente virtual
+venv/
+.venv/
+
+# Segredos
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Banco local e migrations temporárias
+*.db
+*.sqlite3
+
+# Editores e sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
