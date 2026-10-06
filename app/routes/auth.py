@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from app.ext import db
 from app.models.user import User
-from app.utils.decorators import role_required
+
 
 auth_bp = Blueprint("auth", __name__)
 
@@ -70,7 +70,3 @@ def me():
     return jsonify(id=user.id, nome=user.nome, email=user.email, role=user.role), 200
 
 
-@auth_bp.route("/admin-teste", methods=["GET"])
-@role_required("ADMIN")
-def admin_teste():
-    return jsonify(mensagem="você é admin"), 200

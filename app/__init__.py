@@ -5,6 +5,7 @@ from flask import Flask
 from app.ext import db, jwt
 from app.routes.main import main_bp
 from app.routes.auth import auth_bp
+from app.routes.serv import serv_bp
 
 load_dotenv()
 
@@ -21,8 +22,10 @@ def create_app():
     jwt.init_app(app)
 
     from app.models import user  # noqa: F401
+    from app.models import service
 
     app.register_blueprint(main_bp)
     app.register_blueprint(auth_bp, url_prefix="/auth")
+    app.register_blueprint(serv_bp, url_prefix="/serv")
 
     return app
